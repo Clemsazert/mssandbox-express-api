@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "nodemon",
-    "lint": "eslint './**/*.ts'"
+    "lint": "eslint './**/*.ts'",
+    "ts-compile": "node_modules/typescript/bin/tsc"
   },
   "repository": {
     "type": "git",

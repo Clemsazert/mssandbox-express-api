@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+    express-api:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./src:/usr/src/app/src
+        ports:
+            - "8000:8000"
+        container_name: express-api
+        command: npm start
