@@ -1,0 +1,11 @@
+stages:
+    - lint
+
+linter:
+    stage: lint
+    dependencies:
+        - dependencies
+    image: node:12.16.1-alpine
+    script:
+        - npm install
+        - npm run lint
