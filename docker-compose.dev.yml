@@ -4,6 +4,7 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
+            target: build-back
         volumes:
             - ./src:/usr/src/app/src
         ports:

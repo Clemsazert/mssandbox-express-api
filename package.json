@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon",
     "lint": "eslint --ext .js,.ts src/",
-    "ts-compile": "node_modules/typescript/bin/tsc"
+    "ts-compile": "node_modules/typescript/bin/tsc",
+    "docker-dev": "docker-compose -f docker-compose.dev.yml up"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
   },
   "homepage": "https://gitlab.com/mssandbox/express-api#readme",
   "dependencies": {
+    "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
