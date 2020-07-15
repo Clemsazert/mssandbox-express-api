@@ -10,4 +10,6 @@ services:
         ports:
             - "8000:8000"
         container_name: express-api
+        environment: 
+            - NODE_ENV=development
         command: npm start
