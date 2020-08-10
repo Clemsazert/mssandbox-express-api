@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-interface TeamAPIResponse {
+interface TeamAPI {
   team_id: number;
   rating: number;
   wins: number;
@@ -9,10 +9,37 @@ interface TeamAPIResponse {
   logo_url?: string;
   tag: string;
 }
-interface DOTATeam {
-  name: string;
+interface DOTATeamLight {
   id: number;
-  logoUrl: string | undefined;
+  name: string;
+  logoUrl?: string;
 }
 
-export { TeamAPIResponse, DOTATeam };
+interface PlayerAPI {
+  account_id: number;
+  name: string;
+  games_played: number;
+  wins: number;
+  is_current_team_member: true;
+}
+
+interface DOTAPlayer {
+  id: number;
+  name: string;
+  gamesPlayed: number;
+  wins: number;
+}
+
+interface DOTATeam {
+  id: number;
+  name: string;
+  logoUrl?: string;
+  players: DOTAPlayer[];
+  rating: number;
+  wins: number;
+  losses: number;
+  lastMatchTime: number;
+  tag: string;
+}
+
+export { TeamAPI, DOTATeamLight, PlayerAPI, DOTAPlayer, DOTATeam };
