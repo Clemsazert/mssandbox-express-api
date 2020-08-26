@@ -12,4 +12,6 @@ services:
         container_name: express-api
         environment: 
             - NODE_ENV=development
+        env_file: 
+            - .env.dev
         command: npm start
