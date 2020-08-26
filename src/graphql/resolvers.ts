@@ -1,5 +1,7 @@
+import { ApolloError } from 'apollo-server-express';
 import { getAllTeams, getTeamPlayers, getTeamById } from '../utils/requests';
-import { DOTATeamLight, DOTATeam, PlayerAPI } from '../models/dotaModels';
+import { DOTATeamLight, DOTATeam, PlayerAPI, QuizzQuestionType } from '../models/dotaModels';
+import { Question, QuestionType } from '../utils/mongoose/questions';
 
 export const resolvers = {
   Query: {
@@ -14,10 +16,7 @@ export const resolvers = {
         }));
     },
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    teamById: async (
-      _: any,
-      { id: teamId }: { id: number }
-    ): Promise<DOTATeam> => {
+    teamById: async (_: unknown, { id: teamId }: { id: number }): Promise<DOTATeam> => {
       const {
         team_id: id,
         logo_url: logoUrl,
@@ -52,6 +51,15 @@ export const resolvers = {
         tag,
         lastMatchTime
       };
-    }
+    },
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    questionById: async (_: unknown, { id }: { id: string }): Promise<QuestionType> => {
+      const question = await Question.getById(id);
+      if (!question) {
+        throw new ApolloError(`No question found for id ${id}`);
+      }
+      return question;
+    },
+    generateQuizz: async (): Promise<QuizzQuestionType[]> => Question.generateQuizz()
   }
 };

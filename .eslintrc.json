@@ -41,7 +41,8 @@
             {
                 "ObjectPattern": { "multiline": true }
             }
-        ]
+        ],
+        "linebreak-style": ["error", "windows"]
     },
     "settings": {
         "import/resolver": {

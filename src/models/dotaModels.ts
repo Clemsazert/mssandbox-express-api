@@ -42,4 +42,11 @@ interface DOTATeam {
   tag: string;
 }
 
-export { TeamAPI, DOTATeamLight, PlayerAPI, DOTAPlayer, DOTATeam };
+interface QuizzQuestionType {
+  question: string;
+  answers: string[];
+  correct: number;
+  type: string;
+}
+
+export { TeamAPI, DOTATeamLight, PlayerAPI, DOTAPlayer, DOTATeam, QuizzQuestionType };
