@@ -42,7 +42,7 @@
                 "ObjectPattern": { "multiline": true }
             }
         ],
-        "linebreak-style": ["error", "windows"]
+        "linebreak-style": "off"
     },
     "settings": {
         "import/resolver": {
