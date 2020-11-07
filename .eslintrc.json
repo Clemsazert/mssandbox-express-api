@@ -41,7 +41,8 @@
             {
                 "ObjectPattern": { "multiline": true }
             }
-        ]
+        ],
+        "linebreak-style": "off"
     },
     "settings": {
         "import/resolver": {

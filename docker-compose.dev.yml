@@ -4,9 +4,14 @@ services:
         build:
             context: ./
             dockerfile: Dockerfile
+            target: build-back
         volumes:
             - ./src:/usr/src/app/src
         ports:
             - "8000:8000"
         container_name: express-api
+        environment: 
+            - NODE_ENV=development
+        env_file: 
+            - .env.dev
         command: npm start
