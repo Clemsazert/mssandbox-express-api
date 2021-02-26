@@ -27,4 +27,5 @@ RUN npm install --only=prod
 COPY --from=build-back /usr/src/app/build ./
 
 # Launch
-CMD ["node", "index.js"]
+ENTRYPOINT [ "node" ]
+CMD ["index.js"]
