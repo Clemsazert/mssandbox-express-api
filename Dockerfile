@@ -19,6 +19,7 @@ FROM node:12.16.1-alpine
 WORKDIR /usr/src/app
 
 # Dependencies
+ENV NODE_ENV production
 COPY package*.json ./
 RUN npm install --only=prod
 
