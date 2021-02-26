@@ -17,6 +17,4 @@ export const getTeamPlayers = (id: number): Promise<PlayerAPI[]> => openDotaSess
 
 /* --------------------------- Twitch API Session -------------------------- */
 
-export const searchChannels = async (query: string): Promise<unknown> => {
-  return TwitchSession.get('/channels', { params: { q: query } });
-};
+export const searchChannels = async (query: string): Promise<unknown> => TwitchSession.get('/channels', { params: { q: query } });

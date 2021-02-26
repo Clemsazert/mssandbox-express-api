@@ -77,18 +77,16 @@ const openDotaSession = new Session('https://api.opendota.com/api');
 
 const TwitchSession = new Session('https://api.twitch.tv/helix', { 'Client-Id': process.env.TWITCH_APP_ID });
 
-export const getTwitchToken = (): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    axios.post(`https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_APP_ID}&client_secret=${process.env.TWITCH_APP_SECRET}&grant_type=client_credentials`)
-      .then(res => {
-        console.log('Token response:', res);
-        TwitchSession.setAuthorization(res.data.access_token);
-        resolve();
-      })
-      .catch(err => {
-        reject(err);
-      });
-  });
-};
+export const getTwitchToken = (): Promise<void> => new Promise((resolve, reject) => {
+  axios.post(`https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_APP_ID}&client_secret=${process.env.TWITCH_APP_SECRET}&grant_type=client_credentials`)
+    .then(res => {
+      console.log('Token response:', res);
+      TwitchSession.setAuthorization(res.data.access_token);
+      resolve();
+    })
+    .catch(err => {
+      reject(err);
+    });
+});
 
 export { openDotaSession, TwitchSession };
